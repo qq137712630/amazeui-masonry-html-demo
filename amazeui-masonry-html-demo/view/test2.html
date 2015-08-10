@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Masonry 结合 Panel 使用 | Amaze UI 插件</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="../assets/css/app.min.css">
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="../public/js/jquery-2.1.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../public/css/demo.css"/>
+</head>
+<body class="am-plugin">
+<header class="am-topbar am-topbar-inverse">
+    <div class="am-container">
+
+
+        <button class="cart" style="color: black">
+            <i class="cart__icon fa fa-shopping-cart"></i>
+            <span class="text-hidden">Shopping cart</span>
+            <span class="cart__count">0</span>
+        </button>
+
+    </div>
+</header>
+
+<section class="amp-main" id="amp-main">
+    <div class="am-container">
+        <div id="js-container" class="grid">
+
+        </div>
+
+        <div id="load-more">
+            <button class="am-btn am-btn-primary">载入更多</button>
+        </div>
+
+        <script type="text/x-handlebars-template" id="tpl-list" class="grid">
+            {{#each events}}
+            <div class="msry-item grid__item">
+                <section class="am-panel am-panel-default">
+                    <header class="am-panel-hd ">
+                        <h3 class="am-panel-title">{{title}}</h3>
+                    </header>
+                    <div class="am-panel-bd">
+                        开始：{{begin_time}} <br/>
+                        结束： {{begin_time}}<br/>
+                        地点：{{address}} <br/>
+                        类型： {{category_name}} <br/>
+                        <a href="{{alt}}" target="_blank">查看详情 &rarrlp;</a>
+
+                    </div>
+                </section>
+                <button class="action--buy">购买</button>
+            </div>
+            <!--<div class="msry-item grid__item">-->
+            <!--<section class="am-panel am-panel-default">-->
+            <!--<header class="am-panel-hd ">-->
+            <!--<h3 class="am-panel-title">名字{{name}}</h3>-->
+            <!--</header>-->
+            <!--<div class="am-panel-bd action&#45;&#45;buy">-->
+            <!--价格：{{price}} <br/>-->
+
+            <!--</div>-->
+            <!--</section>-->
+            <!--<button class="action&#45;&#45;buy" onclick="addToCart()">购买</button>-->
+            <!--</div>-->
+            {{/each}}
+
+
+        </script>
+
+
+        <nav class="amp-pager">
+
+        </nav>
+    </div>
+</section>
+
+
+<div class="amp-toolbar" id="amp-toolbar">
+    <a href="#top" title="回到顶部" class="am-icon-btn am-icon-arrow-up" id="amp-go-top"></a>
+</div>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/handlebars.min.js"></script>
+<script async defer id="github-bjs" src="../assets/js/buttons.js"></script>
+<script src="../public/js/AddCart.js"></script>
+<script src="../public/js/masonry.pkgd.min.js"></script>
+<script src="../public/js/bundle.js"></script>
+
+<!--<script>-->
+<!--// 如果 Handlebars 渲染出来的 HTML 在 DOM ready 事件之后插入文档，需要手动初始化组件-->
+<!--$.each(['events'], function(i, m) {-->
+<!--var module = $.AMUI[m];-->
+<!--module && module.init && module.init();-->
+<!--})-->
+<!--</script>-->
+
+</body>
+</html>
+

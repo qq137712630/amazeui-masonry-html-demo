@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery.getJSON demo</title>
+    <style>
+        img {
+            height: 100px;
+            float: left;
+        }
+    </style>
+    <Script id="oScript"></Script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<div id="images"></div>
+
+<script>
+    (function () {
+        var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+        $.getJSON(flickerAPI, {
+            tags: "mount rainier",
+            tagmode: "any",
+            format: "json"
+        })
+                .done(function (data) {
+                    $.each(data.events, function (i, item) {
+                        $("<img>").attr("src", item.media.m).appendTo("#images");
+
+                        if (i === 3) {
+                            alert("确定" + item);
+                            return false;
+                        }
+                    });
+                });
+
+//        flickerAPI = "http://120.24.70.27:8080/xt-yft-snack/waiter/getunsendorders?";
+//
+//        $.getJSON(flickerAPI, {
+//            osize: 10
+//        })
+//                .done(function (data) {
+//                    $.each(data.items, function (i, item) {
+//                        // $( "<p>" ).attr( "href", item.code ).appendTo( "#images" );
+//                        alert("确定" + item.code);
+//                    });
+//                });
+
+        var url = "https://api.douban.com/v2/event/list?loc=beijing&type=music&callback=?&count=10&start=0";
+
+        url = "http://gw.api.tbsandbox.com/router/rest?sign=7F24499A91772F65DB8961134E2C89B2&timestamp=2015-08-05+10%3A17%3A28&v=2.0&app_key=1012129701&method=taobao.baike.druginfo.query&partner_id=top-apitools&format=json";
+
+        $.getJSON(url, function (data) {
+            alert("确定");
+        })
+            //成功后调用
+                .done(function () {
+                    alert("second done");
+                })
+            //失败后调用
+                .fail(function () {
+                    alert("fail");
+                })
+            ////不管成功或失败都会调用
+            //.always(function() { alert("always"); })
+        ;
+        var test= request("oScript",url);
+
+
+        function request(id, url) {
+            var oScript = document.getElementById(id);
+            var head = document.getElementsByTagName("head").item(0);
+            if (oScript) {
+                head.removeChild(oScript);
+            }
+            oScript = document.createElement("script");
+            oScript.setAttribute("src", url);
+            oScript.setAttribute("id", id);
+            oScript.setAttribute("type", "text/javascript");
+            oScript.setAttribute("language", "javascript");
+            head.appendChild(oScript);
+            return oScript;
+        }
+
+
+    })();
+
+
+</script>
+
+</body>
+</html>
